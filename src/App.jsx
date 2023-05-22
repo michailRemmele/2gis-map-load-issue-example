@@ -3,7 +3,7 @@ import { load } from '@2gis/mapgl';
 
 const MapWrapper = React.memo(
   () => {
-      return <div id="map-container" style={{ width: '100%', height: '100%' }}></div>;
+      return <div id="map-container" style={{ width: '100vw', height: '100vh' }}></div>;
   },
   () => true,
 );
@@ -12,7 +12,7 @@ export const App = () => {
   useEffect(() => {
     let map;
 
-    load().then((mapglAPI) => {
+    System.import('https://mapgl.2gis.com/api/js/v1').then((mapglAPI) => {
       // mapglAPI будет равен undefined, из-за использования системы модулей SystemJS
       // Бандл с API 2GIS (https://mapgl.2gis.com/api/js) содержит такой код:
       // {
